@@ -1,23 +1,38 @@
 <template>
   <div>
-    <BarChart :chart-data="chartData" :options="chartOptions" />
+    <BarChart :chart-data="chartData1" :options="chartOptions" />
+  </div>
+  <div>
+    <LineChart :chart-data="chartData2" :options="chartOptions" />
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { BarChart } from 'vue-chart-3';
+import { BarChart, LineChart } from 'vue-chart-3';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 // チャートデータの設定
-const chartData = ref({
+const chartData1 = ref({
   labels: ['January', 'February', 'March', 'April', 'May'],
   datasets: [
     {
       label: 'My First dataset',
       backgroundColor: '#f87979',
       data: [40, 20, 12, 39, 10],
+    },
+  ],
+});
+
+const chartData2 = ref({
+  labels: ['January', 'February', 'March', 'April', 'May'],
+  datasets: [
+    {
+      label: 'Dataset 1',
+      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      data: [0, 20, 40, 50, 60, 70],
     },
   ],
 });
