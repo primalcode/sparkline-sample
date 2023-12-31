@@ -5,11 +5,14 @@
   <div>
     <LineChart :chart-data="chartData2" :options="chartOptions" />
   </div>
+  <div>
+    <DoughnutChart :chart-data="chartData3" :options="chartOptions" />
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { BarChart, LineChart } from 'vue-chart-3';
+import { BarChart, LineChart, DoughnutChart } from 'vue-chart-3';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -33,6 +36,17 @@ const chartData2 = ref({
       borderColor: 'rgb(255, 99, 132)',
       backgroundColor: 'rgba(255, 99, 132, 0.5)',
       data: [0, 20, 40, 50, 60, 70],
+    },
+  ],
+});
+
+const chartData3 = ref({
+  labels: ['Red', 'Blue', 'Yellow'],
+  datasets: [
+    {
+      label: 'My First Dataset3',
+      data: [300, 50, 100],
+      backgroundColor: ['red', 'blue', 'yellow'],
     },
   ],
 });
