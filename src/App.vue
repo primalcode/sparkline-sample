@@ -8,11 +8,14 @@
   <div>
     <DoughnutChart :chart-data="chartData3" :options="chartOptions" />
   </div>
+  <div>
+    <PieChart :chart-data="chartData4" :options="chartOptions" />
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { BarChart, LineChart, DoughnutChart } from 'vue-chart-3';
+import { BarChart, LineChart, DoughnutChart, PieChart } from 'vue-chart-3';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -47,6 +50,16 @@ const chartData3 = ref({
       label: 'My First Dataset3',
       data: [300, 50, 100],
       backgroundColor: ['red', 'blue', 'yellow'],
+    },
+  ],
+});
+
+const chartData4 = ref({
+  labels: ['Red', 'Green', 'Blue'],
+  datasets: [
+    {
+      data: [300, 50, 100],
+      backgroundColor: ['red', 'green', 'blue'],
     },
   ],
 });
