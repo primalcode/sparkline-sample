@@ -1,22 +1,26 @@
 <template>
   <div>
-    <BarChart :chart-data="chartData1" :options="chartOptions" />
+    <BarChart :chart-data="chartData1" :options="chartOptions"/>
   </div>
   <div>
-    <LineChart :chart-data="chartData2" :options="chartOptions" />
+    <LineChart :chart-data="chartData2" :options="chartOptions"/>
   </div>
   <div>
-    <DoughnutChart :chart-data="chartData3" :options="chartOptions" />
+    <DoughnutChart :chart-data="chartData3" :options="chartOptions"/>
   </div>
   <div>
-    <PieChart :chart-data="chartData4" :options="chartOptions" />
+    <PieChart :chart-data="chartData4" :options="chartOptions"/>
+  </div>
+  <div>
+    <PolarAreaChart :chart-data="chartData5" :options="chartOptions"/>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { BarChart, LineChart, DoughnutChart, PieChart } from 'vue-chart-3';
-import { Chart, registerables } from 'chart.js';
+import {ref} from 'vue';
+import {BarChart, DoughnutChart, LineChart, PieChart, PolarAreaChart} from 'vue-chart-3';
+import {Chart, registerables} from 'chart.js';
+
 Chart.register(...registerables);
 
 // チャートデータの設定
@@ -64,6 +68,16 @@ const chartData4 = ref({
   ],
 });
 
+const chartData5 = ref({
+  labels: ['Red', 'Green', 'Blue', 'Yellow', 'Purple'],
+  datasets: [
+    {
+      label: 'My First Dataset',
+      data: [11, 16, 7, 3, 14],
+      backgroundColor: ['red', 'green', 'blue', 'yellow', 'purple'],
+    },
+  ],
+});
 // チャートオプションの設定
 const chartOptions = ref({
   responsive: true,
