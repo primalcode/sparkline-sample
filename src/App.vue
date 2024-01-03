@@ -14,11 +14,14 @@
   <div>
     <PolarAreaChart :chart-data="chartData5" :options="chartOptions"/>
   </div>
+  <div>
+    <BubbleChart :chart-data="chartData6" :options="chartOptions"/>
+  </div>
 </template>
 
 <script setup>
 import {ref} from 'vue';
-import {BarChart, DoughnutChart, LineChart, PieChart, PolarAreaChart} from 'vue-chart-3';
+import {BarChart, DoughnutChart, LineChart, PieChart, PolarAreaChart, BubbleChart} from 'vue-chart-3';
 import {Chart, registerables} from 'chart.js';
 
 Chart.register(...registerables);
@@ -75,6 +78,19 @@ const chartData5 = ref({
       label: 'My First Dataset',
       data: [11, 16, 7, 3, 14],
       backgroundColor: ['red', 'green', 'blue', 'yellow', 'purple'],
+    },
+  ],
+});
+
+const chartData6 = ref({
+  datasets: [
+    {
+      label: 'First Dataset',
+      data: [
+        { x: 20, y: 30, r: 15 },
+        { x: 40, y: 10, r: 10 },
+      ],
+      backgroundColor: 'rgb(255, 99, 132)',
     },
   ],
 });
