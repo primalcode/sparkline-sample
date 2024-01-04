@@ -17,11 +17,14 @@
   <div>
     <BubbleChart :chart-data="chartData6" :options="chartOptions"/>
   </div>
+  <div>
+    <ScatterChart :chart-data="chartData7" :options="chartOptions"/>
+  </div>
 </template>
 
 <script setup>
 import {ref} from 'vue';
-import {BarChart, DoughnutChart, LineChart, PieChart, PolarAreaChart, BubbleChart} from 'vue-chart-3';
+import {BarChart, BubbleChart, DoughnutChart, LineChart, PieChart, PolarAreaChart, ScatterChart} from 'vue-chart-3';
 import {Chart, registerables} from 'chart.js';
 
 Chart.register(...registerables);
@@ -87,13 +90,28 @@ const chartData6 = ref({
     {
       label: 'First Dataset',
       data: [
-        { x: 20, y: 30, r: 15 },
-        { x: 40, y: 10, r: 10 },
+        {x: 20, y: 30, r: 15},
+        {x: 40, y: 10, r: 10},
       ],
       backgroundColor: 'rgb(255, 99, 132)',
     },
   ],
 });
+
+const chartData7 = ref({
+  datasets: [
+    {
+      label: 'Scatter Dataset',
+      data: [
+        {x: -10, y: 0},
+        {x: 0, y: 10},
+        {x: 10, y: 5},
+      ],
+      backgroundColor: 'rgb(255, 99, 132)',
+    },
+  ],
+});
+
 // チャートオプションの設定
 const chartOptions = ref({
   responsive: true,
