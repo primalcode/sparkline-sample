@@ -23,6 +23,9 @@
   <div>
     <BarChart :chart-data="chartData8" :options="chartOptions" />
   </div>
+  <div>
+    <LineChart :chart-data="chartData9" :options="chartOptions" />
+  </div>
 </template>
 
 <script setup>
@@ -134,6 +137,20 @@ const chartData8 = ref({
     }
   ]
 });
+
+const chartData9 = ref({
+  labels: ['January', 'February', 'March', 'April', 'May'],
+  datasets: [
+    {
+      label: 'My First dataset',
+      data: [65, 59, 80, 81, 56],
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.4  // 曲線の強さを設定
+    }
+  ]
+});
+
 // チャートオプションの設定
 const chartOptions = ref({
   responsive: true,
