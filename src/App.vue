@@ -20,6 +20,9 @@
   <div>
     <ScatterChart :chart-data="chartData7" :options="chartOptions"/>
   </div>
+  <div>
+    <BarChart :chart-data="chartData8" :options="chartOptions" />
+  </div>
 </template>
 
 <script setup>
@@ -112,6 +115,25 @@ const chartData7 = ref({
   ],
 });
 
+const chartData8 = ref({
+  labels: ['January', 'February', 'March', 'April', 'May'],
+  datasets: [
+    {
+      label: 'Bar Dataset',
+      data: [10, 20, 30, 40, 50],
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      // 棒グラフを指定
+      type: 'bar'
+    },
+    {
+      label: 'Line Dataset',
+      data: [50, 40, 30, 20, 10],
+      borderColor: 'rgb(54, 162, 235)',
+      // 折れ線グラフを指定
+      type: 'line'
+    }
+  ]
+});
 // チャートオプションの設定
 const chartOptions = ref({
   responsive: true,
